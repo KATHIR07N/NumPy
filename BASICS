@@ -32,7 +32,116 @@ dtype('int64')
 k.itemsize
 8
 
-
 # TO GET TOTAL SIZE .nbytes
 k.nbytes
 48
+
+
+k[:,2]
+array([7, 5])
+
+k[:,6]
+array([7, 9])
+
+#slicing [startindex:endindex:stepindex]
+k[0, 2:6:3]
+array([7, 9])
+
+
+ACCESING/CHANGING SPECIFIC ELEMENTS, ROWS, COLUMNS,etc
+import numpy as np
+k = np.array([[5,6,7,4,8,9,7,2],[4,2,5,4,7,8,9,0]])
+print(k)
+..[[5 6 7 4 8 9 7 2]
+   [4 2 5 4 7 8 9 0]]
+
+k[1,4]
+np.int64(7)
+
+k[:,4]
+array([8, 7])
+
+k[0,-2]
+np.int64(7)
+
+k[0,:]
+array([5, 6, 7, 4, 8, 9, 7, 2])
+
+k[0,-2]=20
+print (k[0,:])
+[ 5  6  7  4  8  9 20  2]
+
+k[:,3]=[100,99]
+print(k)
+[[  5   6   7 100   8   9  20   2]
+ [  4   2   5  99   7   8   9   0]]
+
+3-D example
+n=np.array([[[1,2,3],[4,5,6]],[[7,8,9],[10,11,12]]])
+print (n)
+[[[ 1  2  3]
+  [ 4  5  6]]
+ [[ 7  8  9]
+  [10 11 12]]]
+
+n[:,(0,1),2]
+array([[ 3,  6],
+       [ 9, 12]])
+
+# Initializing Different Types of Arrays
+task re-create 
+[[1,1,1,1,1]
+ [1,0,0,0,1]
+ [1,0,9,0,1[
+ [1,0,0,0,1]
+ [1,1,1,1,1]]
+
+kk=np.zeros((3,3),dtype='int')
+print(kk)
+[[0 0 0]
+ [0 0 0]
+ [0 0 0]]
+
+kn=np.ones((5,5),dtype='int')
+print(kn)
+[[1 1 1 1 1]
+ [1 1 1 1 1]
+ [1 1 1 1 1]
+ [1 1 1 1 1]
+ [1 1 1 1 1]]
+
+kk[1,1]=9
+print(kk)
+[[0 0 0]
+ [0 9 0]
+ [0 0 0]]
+
+kn[1:4,1:-1]=kk
+print (kn)
+[[1 1 1 1 1]
+ [1 0 0 0 1]
+ [1 0 9 0 1]
+ [1 0 0 0 1]
+ [1 1 1 1 1]]
+
+kn[3:5,0:2]
+array([[1, 0],
+       [1, 1]])
+
+kn[[0,1,2,3],[1,2,3,4]]
+array([1, 0, 0, 1])
+
+kn[[0,3,4],3:]
+array([[1, 1],
+       [0, 1],
+       [1, 1]])
+
+# COPING ARRAYS
+A = np.array([1,2,3,4])
+print(A)
+[1 2 3 4]
+
+B= A.copy()
+B[3]=7
+print(A,B)
+[1 2 3 4] [1 2 3 7]
